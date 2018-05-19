@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>...</title>
+  <title>520喵喵喵～</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
   <script type="text/javascript">
 	//屏幕自适应
@@ -179,11 +179,33 @@
     border-radius: .30769231em;
     box-shadow: 0 0 0.61538462em rgba(0,0,0,.4);
   }
+  .load{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 2px;
+    height: 2px;
+    visibility: hidden;
+    overflow: hidden;
+  }
   </style>
 </head>
 
 <body class="bg">
-
+  <div class="load">
+    <img src="./images/pic_01.jpeg" alt="">
+    <img src="./images/pic_02.jpeg" alt="">
+    <img src="./images/pic_03.jpeg" alt="">
+    <img src="./images/pic_04.jpeg" alt="">
+    <img src="./images/pic_05.jpeg" alt="">
+    <img src="./images/pic_06.jpeg" alt="">
+    <img src="./images/pic_07.png" alt="">
+    <img src="./images/pic_08.jpeg" alt="">
+    <img src="./images/pic_09.jpeg" alt="">
+    <img src="./images/pic_10.jpeg" alt="">
+    <img src="./images/pic_11.jpeg" alt="">
+    <img src="./images/pic_11.jpeg" alt="">
+  </div>
   <div id="wraper">
 	<div id="facebook" style="transform:rotateX(-108deg) rotateY(0deg) rotateZ(0deg)">
 		<div id="face_1" class="face">
@@ -239,7 +261,9 @@
 
   <div id="jumpTo">跳过</div>
   <script>
-
+    onload = function(){
+      new PentagonalDodecahedron();
+    }
     document.body.ontouchmove = function(e){
         e.preventDefault();
     }
@@ -454,7 +478,7 @@
 
     }
 
-    new PentagonalDodecahedron();
+    //new PentagonalDodecahedron();
 
   //var show = document.getElementById("show");
 
