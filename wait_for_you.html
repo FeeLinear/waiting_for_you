@@ -70,6 +70,9 @@
     transition: all 1s ease-in-out;
     transform: scale(0.1, 0.1);
   }
+  .crack{
+    transition: all 0.2s ease-in-out;
+  }
 	.flag{
     position: absolute;
 	  top: 50%;
@@ -84,40 +87,77 @@
     transform: rotateX(100deg) translateZ(250px);
   }
 	.face_1{
-	  transform: translateZ(133.62px);
+	  transform: translateZ(150.62px);
 	}
 	.face_2{
-    transform: rotateY(62.4deg) rotateX(-16deg) rotateZ(98deg) translateZ(133.62px);
+    transform: rotateY(62.4deg) rotateX(-16deg) rotateZ(98deg) translateZ(150.62px);
 	}
 	.face_3{
-	  transform: rotateX(-63.5deg) rotateY(0deg) rotateZ(180deg) translateZ(133.62px);
+	  transform: rotateX(-63.5deg) rotateY(0deg) rotateZ(180deg) translateZ(150.62px);
 	}
 	.face_4{
-	  transform: rotateX(-31.5deg) rotateY(-58.3deg) rotateZ(234.5deg) translateZ(133.62px);
+	  transform: rotateX(-31.5deg) rotateY(-58.3deg) rotateZ(234.5deg) translateZ(150.62px);
 	}
 
 	.face_5{
-	  transform: rotateX(68deg) rotateZ(-15deg) rotateY(-33deg) translateZ(133.62px);
+	  transform: rotateX(68deg) rotateZ(-15deg) rotateY(-33deg) translateZ(150.62px);
 	}
 	.face_6{
-    transform: rotateX(58.4deg) rotateY(31.5deg) rotateZ(17.6deg) translateZ(133.62px);
+    transform: rotateX(58.4deg) rotateY(31.5deg) rotateZ(17.6deg) translateZ(150.62px);
 	}
 	.face_7{
-	  transform: rotateX(-32deg) rotateY(-121.8deg) rotateZ(53.8deg) translateZ(133.62px);
+	  transform: rotateX(-32deg) rotateY(-121.8deg) rotateZ(53.8deg) translateZ(150.62px);
 	}
 	.face_8{
-	  transform: rotateX(58deg) rotateY(212deg) rotateZ(162deg) translateZ(133.62px);
+	  transform: rotateX(58deg) rotateY(212deg) rotateZ(162deg) translateZ(150.62px);
 	}
 	.face_9{
-	  transform: rotateX(58deg) rotateY(148.5deg) rotateZ(198deg) translateZ(133.62px);
+	  transform: rotateX(58deg) rotateY(148.5deg) rotateZ(198deg) translateZ(150.62px);
 	}
 	.face_10{
-	  transform: rotateX(-32deg) rotateY(122deg) rotateZ(306deg) translateZ(133.62px);
+	  transform: rotateX(-32deg) rotateY(122deg) rotateZ(306deg) translateZ(150.62px);
 	}
 	.face_11{
-	  transform: rotateX(116.5deg) rotateY(0deg) rotateZ(180deg) translateZ(133.62px);
+	  transform: rotateX(116.5deg) rotateY(0deg) rotateZ(180deg) translateZ(150.62px);
 	}
 	.face_12{
+	  transform: rotateX(0deg) rotateY(-180deg) rotateZ(36deg) translateZ(150.62px);
+  }
+	.face_1.crack{
+	  transform: translateZ(133.62px);
+	}
+	.face_2.crack{
+    transform: rotateY(62.4deg) rotateX(-16deg) rotateZ(98deg) translateZ(133.62px);
+	}
+	.face_3.crack{
+	  transform: rotateX(-63.5deg) rotateY(0deg) rotateZ(180deg) translateZ(133.62px);
+	}
+	.face_4.crack{
+	  transform: rotateX(-31.5deg) rotateY(-58.3deg) rotateZ(234.5deg) translateZ(133.62px);
+	}
+
+	.face_5.crack{
+	  transform: rotateX(68deg) rotateZ(-15deg) rotateY(-33deg) translateZ(133.62px);
+	}
+	.face_6.crack{
+    transform: rotateX(58.4deg) rotateY(31.5deg) rotateZ(17.6deg) translateZ(133.62px);
+	}
+	.face_7.crack{
+	  transform: rotateX(-32deg) rotateY(-121.8deg) rotateZ(53.8deg) translateZ(133.62px);
+	}
+	.face_8.crack{
+	  transform: rotateX(58deg) rotateY(212deg) rotateZ(162deg) translateZ(133.62px);
+	}
+	.face_9.crack{
+	  transform: rotateX(58deg) rotateY(148.5deg) rotateZ(198deg) translateZ(133.62px);
+	}
+	.face_10.crack{
+	  transform: rotateX(-32deg) rotateY(122deg) rotateZ(306deg) translateZ(133.62px);
+	}
+	.face_11.crack{
+	  transform: rotateX(116.5deg) rotateY(0deg) rotateZ(180deg) translateZ(133.62px);
+	}
+	.face_12.crack{
 	  transform: rotateX(0deg) rotateY(-180deg) rotateZ(36deg) translateZ(133.62px);
   }
   .transition_1{
@@ -208,6 +248,7 @@
       this._init();
     }
     PentagonalDodecahedron.prototype = {
+      crack: false,
       _init: function(){
         this.initStaticDom();
         this.createFaceByCanvas();
@@ -330,6 +371,24 @@
               }
             }
             setFacebookTransform(xyzObj); */
+
+          }
+          document.ontouchend = function(){
+            document.ontouchmove = null;
+            document.ontouchend = null;
+          }
+        }
+        document.ondblclick = function(){
+          if(!self.crack){
+            for(var i=0; i<self.faceDomArr.length; i++){
+              self.faceDomArr[i].classList.add("crack");
+            }
+            self.crack = true;
+          }else{
+            for(var i=0; i<self.faceDomArr.length; i++){
+              self.faceDomArr[i].classList.remove("crack");
+            }
+            self.crack = false;
           }
         }
       },
