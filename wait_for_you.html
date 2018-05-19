@@ -148,51 +148,51 @@
 	<div id="facebook" style="transform:rotateX(-108deg) rotateY(0deg) rotateZ(0deg)">
 		<div id="face_1" class="face">
 			<canvas id="canvas_1" class="face_canvas"></canvas>
-			<div class="flag">壹</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_2" class="face">
 			<canvas id="canvas_2" class="face_canvas"></canvas>
-			<div class="flag">贰</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_3" class="face">
 			<canvas id="canvas_3" class="face_canvas"></canvas>
-			<div class="flag">三</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_4" class="face">
 			<canvas id="canvas_4" class="face_canvas"></canvas>
-			<div class="flag">四</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_5" class="face">
 			<canvas id="canvas_5" class="face_canvas"></canvas>
-			<div class="flag">伍</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_6" class="face">
 			<canvas id="canvas_6" class="face_canvas"></canvas>
-			<div class="flag">六</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_7" class="face">
 			<canvas id="canvas_7" class="face_canvas"></canvas>
-			<div class="flag">七</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_8" class="face">
 			<canvas id="canvas_8" class="face_canvas"></canvas>
-			<div class="flag">八</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_9" class="face">
 			<canvas id="canvas_9" class="face_canvas"></canvas>
-			<div class="flag">九</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_10" class="face">
 			<canvas id="canvas_10" class="face_canvas"></canvas>
-			<div class="flag">10</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_11" class="face">
 			<canvas id="canvas_11" class="face_canvas"></canvas>
-			<div class="flag">11</div>
+			<div class="flag"></div>
 		</div>
 		<div id="face_12" class="face">
 			<canvas id="canvas_12" class="face_canvas"></canvas>
-			<div class="flag">12</div>
+			<div class="flag"></div>
 		</div>
   </div>
   </div>
@@ -251,7 +251,7 @@
         var canvasDraws = []; //保存所有画布元素
         var radiusAngle = Math.PI/180; //角度转弧度
 
-
+        var picArr = ["./images/pic_01.jpeg", "./images/pic_02.jpeg", "./images/pic_03.jpeg", "./images/pic_04.jpeg", "./images/pic_05.jpeg", "./images/pic_06.jpeg", "./images/pic_07.png", "./images/pic_08.jpeg", "./images/pic_09.jpeg", "./images/pic_10.jpeg", "./images/pic_11.jpeg", "./images/pic_12.jpeg"]
         for(var i=0; i<canvasGroup.length; i++){
           var canvasD = canvasGroup[i];
           canvasD.width = canvasD.parentNode.offsetWidth;
@@ -275,8 +275,9 @@
             imgDom.onload = function (){
               var imgDomWidth = imgDom.width;
               var imgDomHeight = imgDom.height;
+              console.log(imgDomWidth)
               var scaleWH = imgDom.width/imgDom.height;
-              canvasDraws[i].drawImage(imgDom, 0, 0);
+              canvasDraws[i].drawImage(imgDom, 0, 0, imgDomWidth, imgDomHeight , 70, 70, 280, 280);
               canvasDraws[i].closePath();
             }
 
@@ -284,7 +285,7 @@
               console.log("获取图片失败")
             }
             imgDom.crossOrigin = "anonymous";
-            imgDom.src = "./images/pic_01.png";
+            imgDom.src = picArr[i];
           })(i)
         }
 
