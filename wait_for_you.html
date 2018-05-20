@@ -192,6 +192,7 @@
 </head>
 
 <body class="bg">
+	<audio id="music_dom" src="./media/xdw.mp3" loop="loop" autoplay="autoplay"></audio>
   <div class="load">
     <img src="./images/pic_01.jpeg" alt="">
     <img src="./images/pic_02.jpeg" alt="">
@@ -261,6 +262,17 @@
 
   <div id="jumpTo">跳过</div>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            var audio = document.getElementById('music_dom');
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+
     onload = function(){
       new PentagonalDodecahedron();
     }
